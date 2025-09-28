@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenis-Jenis Kepemimpinan Interaktif</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      background: linear-gradient(to bottom,#87ceeb,#ffffff);
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+    }
+    /* Toggle Sidebar */
+    .toggle-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1101;
+    }
+    .toggle-btn img { width: 28px; height: 28px; }
+    /* Sidebar */
+    .sidebar {
+      height: 100%; width: 250px; position: fixed;
+      top: 0; left: -250px; background-color: #fff;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+      padding-top: 60px; transition: 0.4s ease; z-index: 1100;
+    }
+    .sidebar.show { left: 0; }
+    .sidebar a {
+      padding: 12px 20px; text-decoration: none;
+      font-size: 18px; color: #333; display: block;
+    }
+    .sidebar a:hover {
+      background-color: #1e90ff; color: white; border-radius: 10px;
+    }
+    /* Overlay */
+    .overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.3); z-index: 1000; display: none;
+    }
+    .overlay.show { display: block; }
+    /* Main */
+    .main { margin-left:0; padding:70px 20px; transition: margin-left .3s ease; }
+    h1 { text-align:center; font-size:30px; margin-bottom:40px; color:#004080; }
+    /* Cards */
+    .card-container {
+      display:flex; justify-content:center; flex-wrap:wrap;
+      gap:20px; max-width:900px; margin:0 auto;
+    }
+    .card {
+      background:#fff; border-radius:20px; padding:25px 20px; text-align:center;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      transition:transform .2s,background .2s;
+      cursor:pointer; width:180px;
+    }
+    .card:hover { transform:translateY(-5px); background:#f0faff; }
+    .card i { font-size:40px; margin-bottom:15px; color:#1e90ff; }
+    .card h3 { margin:0; font-size:18px; color:#333; }
+    /* Card colors */
+    .card.otokratis { background:#ffe0e0; }
+    .card.demokratis { background:#e0f7ff; }
+    .card.laissez { background:#fff0b3; }
+    .card.transformasional { background:#e0ffe0; }
+    .card.transaksional { background:#f0e0ff; }
+    .card.kesimpulan { background:#e6f0ff; }
+    .card.otokratis:hover { background:#ffcccc; }
+    .card.demokratis:hover { background:#b3ecff; }
+    .card.laissez:hover { background:#fff599; }
+    .card.transformasional:hover { background:#ccffcc; }
+    .card.transaksional:hover { background:#d9b3ff; }
+    .card.kesimpulan:hover { background:#cce0ff; }
+    /* Modal */
+    .modal {
+      display:none; position:fixed; z-index:2000;
+      left:0; top:0; width:100%; height:100%;
+      overflow:auto; background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background:#fff; margin:5% auto; padding:20px; border-radius:15px;
+      max-width:800px; box-shadow:0 3px 8px rgba(0,0,0,0.2);
+      position:relative; max-height:90vh; overflow-y:auto;
+    }
+    .close {
+      color:#333; position:absolute; top:15px; right:20px;
+      font-size:28px; font-weight:bold; cursor:pointer;
+    }
+    .close:hover { color:#000; }
+    ul { margin-left:20px; line-height:1.6; }
+    /* Tabs inside modal */
+    .tab-buttons { margin:15px 0; text-align:center; }
+    .tab-buttons button {
+      margin:0 5px; padding:8px 15px; border:none;
+      border-radius:10px; background:#1e90ff; color:white;
+      cursor:pointer; font-weight:bold; transition:0.3s;
+    }
+    .tab-buttons button:hover, .tab-buttons button.active { background:#004080; }
+    .tab-content { display:none; }
+    .tab-content.active { display:block; }
+    /* Clouds */
+    .cloud {
+      position:absolute; background:#fff; border-radius:50%;
+      opacity:0.8; animation: moveClouds 40s linear infinite;
+    }
+    .cloud1 { width:120px; height:60px; top:50px; left:-150px; animation-duration:50s; }
+    .cloud2 { width:100px; height:50px; top:150px; left:-200px; animation-duration:60s; }
+    .cloud3 { width:140px; height:70px; top:250px; left:-250px; animation-duration:70s; }
+    @keyframes moveClouds { from{transform:translateX(0);} to{transform:translateX(120vw);} }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="home.html">🏠 Home</a>
+    <a href="profile.html">👨‍💻 Profile Developer</a>
+    <a href="credit.html">💡 Credit WEB</a>
+    <a href="faq.html">❓ FAQ</a>
+  </div>
+
+  <!-- Suara toggle -->
+  <audio id="toggleSound" src="https://www.myinstants.com/media/sounds/click.mp3"></audio>
+
+  <!-- Toggle -->
+  <button class="toggle-btn" onclick="toggleSidebar()">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Menu">
+  </button>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+  <div id="main" class="main">
+    <h1>Jenis-Jenis Kepemimpinan Interaktif</h1>
+    <div class="card-container">
+      <div class="card otokratis" onclick="openModal('otokratisModal')"><i class="fas fa-user-tie"></i><h3>Otokratis</h3></div>
+      <div class="card demokratis" onclick="openModal('demokratisModal')"><i class="fas fa-users"></i><h3>Demokratis</h3></div>
+      <div class="card laissez" onclick="openModal('laissezModal')"><i class="fas fa-hand-paper"></i><h3>Laissez-Faire</h3></div>
+      <div class="card transformasional" onclick="openModal('transformasionalModal')"><i class="fas fa-lightbulb"></i><h3>Transformasional</h3></div>
+      <div class="card transaksional" onclick="openModal('transaksionalModal')"><i class="fas fa-gift"></i><h3>Transaksional</h3></div>
+      <!-- Kesimpulan Card -->
+      <div class="card kesimpulan" onclick="openModal('kesimpulanModal')">
+        <i class="fas fa-book"></i><h3>Kesimpulan</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modals 5 Jenis Kepemimpinan (Tetap, Lengkap 7+7) ===== -->
+  <!-- Otokratis Modal -->
+  <div id="otokratisModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('otokratisModal')">&times;</span>
+      <h2>Otokratis</h2>
+      <p>Pemimpin otokratis memegang kendali penuh dalam pengambilan keputusan. Anggota hanya mengikuti perintah. Cocok untuk situasi darurat atau membutuhkan disiplin tinggi.</p>
+      <div class="tab-buttons">
+        <button class="active" onclick="showTab('otokratisModal','kelebihan')">Kelebihan</button>
+        <button onclick="showTab('otokratisModal','kekurangan')">Kekurangan</button>
+      </div>
+      <div class="tab-content active" id="otokratisModal-kelebihan">
+        <ul>
+          <li>Keputusan cepat dan tegas.</li>
+          <li>Struktur kerja jelas.</li>
+          <li>Pekerjaan bisa selesai tepat waktu.</li>
+          <li>Sangat efektif dalam kondisi darurat.</li>
+          <li>Anggota tahu tugas masing-masing tanpa bingung.</li>
+          <li>Tidak ada perdebatan panjang sebelum mengambil keputusan.</li>
+          <li>Mempermudah koordinasi karena hanya satu pemimpin.</li>
+        </ul>
+      </div>
+      <div class="tab-content" id="otokratisModal-kekurangan">
+        <ul>
+          <li>Anggota kurang kreatif.</li>
+          <li>Ketergantungan tinggi pada pemimpin.</li>
+          <li>Suasana kerja bisa tegang.</li>
+          <li>Anggota kurang termotivasi karena tidak dilibatkan.</li>
+          <li>Risiko keputusan salah lebih tinggi karena hanya satu orang yang menentukan.</li>
+          <li>Sulit membangun rasa percaya anggota.</li>
+          <li>Tidak cocok untuk pekerjaan yang butuh ide-ide baru.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demokratis Modal -->
+  <div id="demokratisModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('demokratisModal')">&times;</span>
+      <h2>Demokratis</h2>
+      <p>Pemimpin demokratis melibatkan anggota dalam pengambilan keputusan. Anggota diberi kesempatan berdiskusi dan berpendapat. Cocok untuk sekolah, organisasi, atau proyek kerja sama tim.</p>
+      <div class="tab-buttons">
+        <button class="active" onclick="showTab('demokratisModal','kelebihan')">Kelebihan</button>
+        <button onclick="showTab('demokratisModal','kekurangan')">Kekurangan</button>
+      </div>
+      <div class="tab-content active" id="demokratisModal-kelebihan">
+        <ul>
+          <li>Anggota merasa dihargai.</li>
+          <li>Kreativitas meningkat karena ide didengar.</li>
+          <li>Motivasi anggota lebih tinggi.</li>
+          <li>Suasana kerja lebih harmonis.</li>
+          <li>Membantu membangun kerja sama tim.</li>
+          <li>Membuat keputusan lebih bijaksana karena banyak masukan.</li>
+          <li>Anggota belajar berkomunikasi dan berdiskusi.</li>
+        </ul>
+      </div>
+      <div class="tab-content" id="demokratisModal-kekurangan">
+        <ul>
+          <li>Pengambilan keputusan lebih lambat.</li>
+          <li>Bisa muncul perbedaan pendapat yang menimbulkan konflik.</li>
+          <li>Sulit jika anggota terlalu banyak dan heterogen.</li>
+          <li>Membutuhkan waktu lebih lama untuk mencapai kesepakatan.</li>
+          <li>Bisa membingungkan jika tidak ada pemimpin tegas.</li>
+          <li>Kadang anggota pasif hanya mengikuti mayoritas.</li>
+          <li>Tidak efektif dalam situasi darurat yang butuh keputusan cepat.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Laissez-Faire Modal -->
+  <div id="laissezModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('laissezModal')">&times;</span>
+      <h2>Laissez-Faire</h2>
+      <p>Pemimpin laissez-faire memberi kebebasan penuh kepada anggota untuk menentukan cara kerja sendiri. Pemimpin hanya memberi arahan minimal. Cocok untuk tim yang mandiri dan kreatif.</p>
+      <div class="tab-buttons">
+        <button class="active" onclick="showTab('laissezModal','kelebihan')">Kelebihan</button>
+        <button onclick="showTab('laissezModal','kekurangan')">Kekurangan</button>
+      </div>
+      <div class="tab-content active" id="laissezModal-kelebihan">
+        <ul>
+          <li>Anggota bisa mengembangkan kreativitas.</li>
+          <li>Memberikan rasa mandiri dan tanggung jawab.</li>
+          <li>Tidak ada tekanan berlebihan.</li>
+          <li>Anggota bebas mencoba ide baru.</li>
+          <li>Cocok untuk proyek kreatif.</li>
+          <li>Anggota belajar manajemen diri.</li>
+          <li>Suasana kerja santai dan menyenangkan.</li>
+        </ul>
+      </div>
+      <div class="tab-content" id="laissezModal-kekurangan">
+        <ul>
+          <li>Kurangnya pengawasan bisa menimbulkan ketidakteraturan.</li>
+          <li>Anggota bisa kehilangan fokus.</li>
+          <li>Tidak efektif untuk tim baru atau kurang disiplin.</li>
+          <li>Risiko pekerjaan tidak selesai tepat waktu.</li>
+          <li>Sulit koordinasi jika anggota banyak.</li>
+          <li>Bisa muncul konflik karena tiap orang jalan sendiri.</li>
+          <li>Tidak ada pedoman tegas dari pemimpin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transformasional Modal -->
+  <div id="transformasionalModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('transformasionalModal')">&times;</span>
+      <h2>Transformasional</h2>
+      <p>Pemimpin transformasional mampu menginspirasi anggota agar bekerja lebih baik. Fokus pada pengembangan diri anggota, bukan hanya hasil kerja. Cocok di organisasi atau sekolah yang ingin meningkatkan kualitas anggota.</p>
+      <div class="tab-buttons">
+        <button class="active" onclick="showTab('transformasionalModal','kelebihan')">Kelebihan</button>
+        <button onclick="showTab('transformasionalModal','kekurangan')">Kekurangan</button>
+      </div>
+      <div class="tab-content active" id="transformasionalModal-kelebihan">
+        <ul>
+          <li>Meningkatkan loyalitas anggota.</li>
+          <li>Anggota lebih semangat bekerja.</li>
+          <li>Kreativitas dan inovasi meningkat.</li>
+          <li>Anggota belajar berkembang secara pribadi.</li>
+          <li>Suasana kerja positif dan inspiratif.</li>
+          <li>Hubungan pemimpin-anggota lebih dekat.</li>
+          <li>Memotivasi anggota untuk mencapai tujuan tinggi.</li>
+        </ul>
+      </div>
+      <div class="tab-content" id="transformasionalModal-kekurangan">
+        <ul>
+          <li>Membutuhkan pemimpin karismatik.</li>
+          <li>Jika pemimpin kehilangan motivasi, anggota bisa ikut kehilangan semangat.</li>
+          <li>Kadang terlalu idealis untuk situasi tertentu.</li>
+          <li>Membutuhkan waktu lebih lama untuk membangun kepercayaan.</li>
+          <li>Tidak cocok untuk pekerjaan rutin yang kaku.</li>
+          <li>Sulit diterapkan jika anggota tidak termotivasi.</li>
+          <li>Bisa menimbulkan tekanan tinggi pada anggota yang kurang percaya diri.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transaksional Modal -->
+  <div id="transaksionalModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('transaksionalModal')">&times;</span>
+      <h2>Transaksional</h2>
+      <p>Pemimpin transaksional menekankan aturan dan hasil kerja. Memberi penghargaan atau hukuman berdasarkan kinerja anggota. Cocok untuk pekerjaan yang butuh disiplin tinggi dan target jelas.</p>
+      <div class="tab-buttons">
+        <button class="active" onclick="showTab('transaksionalModal','kelebihan')">Kelebihan</button>
+        <button onclick="showTab('transaksionalModal','kekurangan')">Kekurangan</button>
+      </div>
+      <div class="tab-content active" id="transaksionalModal-kelebihan">
+        <ul>
+          <li>Disiplin anggota terjaga.</li>
+          <li>Hasil kerja konsisten.</li>
+          <li>Mudah mengevaluasi kinerja.</li>
+          <li>Anggota tahu konsekuensi tindakan mereka.</li>
+          <li>Cocok untuk target jangka pendek.</li>
+          <li>Proses kerja lebih terstruktur.</li>
+          <li>Mudah diterapkan pada organisasi besar.</li>
+        </ul>
+      </div>
+      <div class="tab-content" id="transaksionalModal-kekurangan">
+        <ul>
+          <li>Kurang mendorong kreativitas.</li>
+          <li>Motivasi anggota bergantung pada hadiah/hukuman.</li>
+          <li>Bisa menciptakan suasana kerja kaku.</li>
+          <li>Tidak cocok untuk pekerjaan yang butuh inovasi.</li>
+          <li>Anggota bisa kehilangan semangat tanpa imbalan.</li>
+          <li>Terlalu fokus pada aturan daripada manusia.</li>
+          <li>Tidak menumbuhkan kepemimpinan anggota.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Kesimpulan Modal (Kosong, kamu isi sendiri) ===== -->
+  <div id="kesimpulanModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('kesimpulanModal')">&times;</span>
+      <h2>Kesimpulan</h2>
+      <p>Kepemimpinan adalah cara seorang pemimpin mengarahkan dan memotivasi tim untuk mencapai tujuan bersama. Ada berbagai jenis kepemimpinan dengan karakteristik berbeda. Kepemimpinan otokratis memberi kontrol penuh pada pemimpin sehingga keputusan cepat, tapi kreativitas tim terbatas. Kepemimpinan demokratis melibatkan tim dalam pengambilan keputusan, menciptakan rasa memiliki, hubungan baik, dan ide kreatif, meski prosesnya lebih lambat. Laissez-faire memberi kebebasan penuh pada tim, cocok untuk yang mandiri dan inovatif, tapi koordinasi bisa lemah. Transformasional menginspirasi dan memotivasi tim untuk berkembang, namun butuh pemimpin visioner. Transaksional fokus pada aturan dan reward/punishment, membuat disiplin tinggi tapi kurang fleksibel.</p>
+      <p>Dari semua jenis, kepemimpinan demokratis dianggap paling baik karena menyeimbangkan kontrol pemimpin dengan partisipasi tim, menciptakan lingkungan harmonis, memotivasi anggota, dan mendorong ide-ide kreatif sehingga tujuan tim lebih mudah tercapai.</p>
+    </div>
+  </div>
+
+  <!-- Cloud -->
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+
+  <script>
+    function toggleSidebar(){
+      var sidebar=document.getElementById("sidebar");
+      var overlay=document.getElementById("overlay");
+      var sound=document.getElementById("toggleSound");
+      sidebar.classList.toggle("show");
+      overlay.classList.toggle("show");
+      sound.play();
+    }
+    function closeSidebar(){
+      document.getElementById("sidebar").classList.remove("show");
+      document.getElementById("overlay").classList.remove("show");
+    }
+    function openModal(id){
+      document.getElementById(id).style.display="block";
+    }
+    function closeModal(id){
+      document.getElementById(id).style.display="none";
+    }
+    function showTab(modalId,tab){
+      var modal=document.getElementById(modalId);
+      var tabs=modal.querySelectorAll(".tab-content");
+      var buttons=modal.querySelectorAll(".tab-buttons button");
+      tabs.forEach(t=>t.classList.remove("active"));
+      buttons.forEach(b=>b.classList.remove("active"));
+      modal.querySelector("#"+modalId+"-"+tab).classList.add("active");
+      event.target.classList.add("active");
+    }
+  </script>
+</body>
+</html>

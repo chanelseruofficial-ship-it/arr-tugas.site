@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Developer</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #87cefa, #ffffff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background: #ffffffcc;
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 900px;
+      width: 90%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      gap: 30px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .photo img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      background: #f0f0f0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .biodata h2,
+    .biodata p {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .biodata h2 { animation-delay: 0.6s; }
+    .biodata p:nth-of-type(1) { animation-delay: 0.9s; }
+    .biodata p:nth-of-type(2) { animation-delay: 1.2s; }
+    .biodata p:nth-of-type(3) { animation-delay: 1.5s; }
+    .biodata p:nth-of-type(4) { animation-delay: 1.8s; }
+
+    .biodata h2 {
+      font-size: 2rem;
+      color: #1e3c72;
+      margin: 8px 0;
+    }
+
+    .biodata p {
+      font-size: 1.1rem;
+      color: #333;
+      margin: 6px 0;
+    }
+
+    .biodata span {
+      font-weight: bold;
+      color: #1e3c72;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .photo img {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    /* Tombol Back */
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+.back-btn:hover {
+      background: #0066cc;
+    }
+  </style>
+</head>
+<body>
+    <!-- Tombol Back -->
+  <button class="back-btn" onclick="window.location.href='home.html'">⬅ Kembali</button>
+  
+  <div class="container">
+    <!-- Foto Developer -->
+    <div class="photo">
+      <img src="https://img1.pixhost.to/images/9002/644642592_encore.jpg" alt="Foto Developer">
+    </div>
+
+    <!-- Biodata -->
+    <div class="biodata">
+      <h2>Nama: Arfa Athallah A.</h2>
+      <p><span>Email:</span> arfadevelop@gmail.com</p>
+      <p><span>Riwayat Pendidikan:</span> SDN 037 Sabang - SMPN 44</p>
+      <p><span>Sedang bersekolah di:</span> SMPN 44 Bandung AKT 28</p>
+      <p><span>Moto Hidup:</span> "Berfikirlah secara logika bukan emosi."</p>
+    </div>
+  </div>
+</body>
+</html>

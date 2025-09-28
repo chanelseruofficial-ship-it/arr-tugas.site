@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Website Tugas Pribadi</title>
+  <style>
+    /* Latar biru dan awan */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #87ceeb, #ffffff);
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    p.header-desc {
+      margin-top: 10px;
+      font-size: 1.1em;
+    }
+
+    /* Container FAQ */
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto 50px auto;
+      padding: 0 20px;
+    }
+
+    /* Accordion styles */
+    .faq {
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .faq-header {
+      padding: 20px;
+      cursor: pointer;
+      position: relative;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .faq-header:hover {
+      background: rgba(135,206,235,0.2);
+    }
+
+    .faq-header::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      font-size: 1.5em;
+      transition: transform 0.3s;
+    }
+
+    .faq.active .faq-header::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      background: rgba(255,255,255,0.95);
+    }
+
+    .faq-content p {
+      padding: 15px 0;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Awan dekoratif */
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: float 20s linear infinite;
+    }
+
+    /* Tombol Back */
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+.back-btn:hover {
+      background: #0066cc;
+    }
+
+    .cloud:nth-child(1) { width: 100px; height: 60px; top: 50px; left: -120px; animation-delay: 0s; }
+    .cloud:nth-child(2) { width: 150px; height: 90px; top: 150px; left: -180px; animation-delay: 5s; }
+    .cloud:nth-child(3) { width: 120px; height: 70px; top: 250px; left: -150px; animation-delay: 10s; }
+
+    @keyframes float {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(120vw); }
+    }
+
+    @media(max-width:600px){
+      .faq-header { font-size: 1em; }
+    }
+
+  </style>
+</head>
+<body>
+<!-- Tombol Back -->
+  <button class="back-btn" onclick="window.location.href='home.html'">⬅ Kembali</button>
+  <header>
+    <h1>FAQ Website Tugas Pribadi</h1>
+    <p class="header-desc">Website publik hanya untuk melihat konten. Unggah tugas hanya oleh pemilik.</p>
+  </header>
+
+  <!-- Awan dekoratif -->
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+
+  <div class="faq-container">
+
+    <div class="faq">
+      <div class="faq-header">1. Apa tujuan website ini dibuat?</div>
+      <div class="faq-content"><p>Website ini dibuat untuk melatih skill pemrograman dan menyimpan hasil tugas pribadiku.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">2. Siapa yang bisa mengunggah tugas?</div>
+      <div class="faq-content"><p>Hanya pemilik website yang bisa menambahkan tugas. Pengunjung hanya bisa melihat konten.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">3. Apakah website ini publik?</div>
+      <div class="faq-content"><p>Ya, semua orang bisa melihat isi website, tetapi tidak bisa mengunggah atau mengubah file.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">4. Mengapa website ini dibuat untuk latihan pribadi?</div>
+      <div class="faq-content"><p>Agar bisa berlatih coding, manajemen file, dan interaktivitas website tanpa kehilangan kontrol.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">5. Berapa kali tugas bisa diunggah?</div>
+      <div class="faq-content"><p>Setiap tugas hanya bisa ditambahkan sekali karena bersifat final.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">6. Apakah pengunjung bisa mengubah atau menghapus konten?</div>
+      <div class="faq-content"><p>Tidak, pengunjung hanya bisa melihat konten. Semua kontrol ada pada pemilik website.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">7. Apakah file yang diunggah aman?</div>
+      <div class="faq-content"><p>Ya, file tersimpan secara pribadi di server, meskipun website dapat diakses publik.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">8. Apa saja jenis file yang bisa dilampirkan?</div>
+      <div class="faq-content"><p>File PDF, DOCX, PPTX, JPG, PNG, atau file tugas lainnya.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">9. Berapa ukuran maksimal file?</div>
+      <div class="faq-content"><p>Maksimal 20 MB per file.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">10. Apakah bisa menambahkan catatan atau deskripsi pada tugas?</div>
+      <div class="faq-content"><p>Ya, sebelum menambahkan tugas, bisa menulis deskripsi singkat.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">11. Apakah bisa menambahkan tugas dari HP?</div>
+      <div class="faq-content"><p>Ya, pemilik bisa menambahkan tugas dari HP atau laptop.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">12. Apakah website bisa digunakan offline?</div>
+      <div class="faq-content"><p>Tidak, semua data tersimpan di server dan memerlukan koneksi internet.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">13. Apa manfaat membuat website ini publik?</div>
+      <div class="faq-content"><p>Pengunjung bisa melihat hasil latihan, portofolio tugas, atau contoh kode yang dibuat.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">14. Apakah bisa membuat versi website baru?</div>
+      <div class="faq-content"><p>Pemilik bisa membuat website baru untuk latihan tambahan kapan saja.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">15. Berapa lama tugas tersimpan di website?</div>
+      <div class="faq-content"><p>Tersimpan setidaknya selama sesi latihan atau sesuai kebutuhan latihan pemrograman.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">16. Apakah bisa menghapus tugas yang sudah ditambahkan?</div>
+      <div class="faq-content"><p>Tidak, setiap tugas yang dilampirkan bersifat final.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">17. Apakah pengunjung bisa mendownload tugas?</div>
+      <div class="faq-content"><p>Tergantung pengaturan, biasanya pengunjung hanya bisa melihat konten.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">18. Apakah bisa menambahkan banyak tugas sekaligus?</div>
+      <div class="faq-content"><p>Bisa, tapi masing-masing tugas tetap mengikuti aturan satu kali lampirkan.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">19. Apakah website ini gratis?</div>
+      <div class="faq-content"><p>Ya, karena dibuat untuk latihan pribadi.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">20. Apakah ada batas jumlah tugas?</div>
+      <div class="faq-content"><p>Tergantung kapasitas server, tapi biasanya cukup untuk ratusan file tugas.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">21. Apakah website membantu belajar manajemen file?</div>
+      <div class="faq-content"><p>Ya, pemilik belajar mengelola file, menambahkan deskripsi, dan menampilkan konten secara rapi.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">22. Apakah pengunjung bisa mengomentari tugas?</div>
+      <div class="faq-content"><p>Tidak, semua interaksi hanya untuk melihat konten.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">23. Apakah bisa mengedit deskripsi tugas?</div>
+      <div class="faq-content"><p>Hanya pemilik yang bisa mengedit deskripsi sebelum atau sesudah lampiran tugas.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">24. Mengapa unggahan tugas hanya satu kali?</div>
+      <div class="faq-content"><p>Supaya fokus pada latihan dan hasil setiap tugas tetap final sebagai referensi portofolio.</p></div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-header">25. Siapa yang bisa dihubungi jika ada masalah teknis?</div>
+      <div class="faq-content"><p>Pemilik website sendiri yang mengatur dan memperbaiki masalah teknis.</p></div>
+    </div>
+
+  </div>
+
+  <script>
+    const faqs = document.querySelectorAll('.faq');
+    faqs.forEach(faq => {
+      faq.querySelector('.faq-header').addEventListener('click', () => {
+        faq.classList.toggle('active');
+        const content = faq.querySelector('.faq-content');
+        if(faq.classList.contains('active')){
+          content.style.maxHeight = content.scrollHeight + "px";
+          content.style.padding = "15px 20px";
+        } else {
+          content.style.maxHeight = 0;
+          content.style.padding = "0 20px";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

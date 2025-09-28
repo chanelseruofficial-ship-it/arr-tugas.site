@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit WEB</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #87ceeb, #ffffff);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .cloud {
+    position: absolute;
+    background: #fff;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #f0f8ff);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: moveClouds linear infinite;
+  }
+
+  @keyframes moveClouds {
+    0% { transform: translateX(-200px); }
+    100% { transform: translateX(120vw); }
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    color: #034f84;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px #ffffff;
+  }
+
+  h2 {
+    color: #034f84;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    background: rgba(255,255,255,0.85);
+    margin: 10px 0;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+  }
+
+  li a {
+    text-decoration: none;
+    color: #034f84;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  /* Tombol Back */
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+.back-btn:hover {
+      background: #0066cc;
+    }
+
+  li:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  }
+
+  footer {
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #034f84;
+    opacity: 0.8;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 2.5s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .icon {
+    font-size: 1.3rem;
+  }
+</style>
+</head>
+<body>
+
+    <!-- Tombol Back -->
+  <button class="back-btn" onclick="window.location.href='home.html'">⬅ Kembali</button>
+
+<!-- Awan animasi -->
+<div class="cloud" style="width:120px;height:70px;top:50px; animation-duration:60s;"></div>
+<div class="cloud" style="width:200px;height:100px;top:150px; animation-duration:80s;"></div>
+<div class="cloud" style="width:150px;height:80px;top:250px; animation-duration:100s;"></div>
+
+<div class="container">
+  <h1>Credit WEB</h1>
+
+  <h2 style="animation-delay:0.2s;">Developer</h2>
+  <ul>
+    <li style="animation-delay:0.4s;"><span class="icon">👨‍💻</span> <a href="#">ARR Developer</a></li>
+  </ul>
+
+  <h2 style="animation-delay:0.6s;">Pen Desain & UI</h2>
+  <ul>
+    <li style="animation-delay:0.8s;"><span class="icon">🎨</span> <a href="#">ARR Developer</a></li>
+  </ul>
+  <ul>
+    <li style="animation-delay:0.8s;"><span class="icon">🎨</span> <a href="#">Gemini Openai</a></li>
+  </ul>
+
+  <h2 style="animation-delay:0.6s;">Ilustrator</h2>
+  <ul>
+    <li style="animation-delay:0.8s;"><span class="icon">🎨</span> <a href="#">ARR Developer</a></li>
+  </ul>
+
+  <h2 style="animation-delay:0.6s;">Web Ini Dilindungi Hak Cipta</h2>
+  <ul>
+    <li style="animation-delay:0.8s;"><span class="icon">🎨</span> <a href="#">@ARR Developer</a></li>
+  </ul>
+
+  <h2 style="animation-delay:1s;">Sumber Konten</h2>
+  <ul>
+    <li style="animation-delay:1.2s;"><span class="icon">📰</span> <a href="https://www.tribunnews.com" target="_blank">Tribun.News</a></li>
+    <li style="animation-delay:1.4s;"><span class="icon">🏫</span> <a href="https://chat.openai.com" target="_blank">Chat GPT-5</a></li>
+    <li style="animation-delay:1.4s;"><span class="icon">🏫</span> <a href="https://www.kemdikbud.go.id" target="_blank">Kemdikbud</a></li>
+    <li style="animation-delay:2.2s;"><span class="icon">👩‍🏫</span> <a href="https://gurupenyemangat.com" target="_blank">GuruPenyemangat.com</a></li>
+  </ul>
+
+  <h2 style="animation-delay:2.4s;">Resource & Tools</h2>
+  <ul>
+    <li style="animation-delay:2.8s;"><span class="icon">🤖</span> <a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
+    <li style="animation-delay:3s;"><span class="icon">💻</span> <a href="https://code.visualstudio.com" target="_blank">VSCode</a></li>
+  </ul>
+
+  <footer>
+    &copy; 2025 ARR Developer. All rights reserved.
+  </footer>
+</div>
+
+<script>
+  const body = document.body;
+  for(let i=0; i<5; i++){
+    const cloud = document.createElement('div');
+    cloud.classList.add('cloud');
+    cloud.style.width = `${Math.random()*200 + 100}px`;
+    cloud.style.height = `${Math.random()*100 + 50}px`;
+    cloud.style.top = `${Math.random()*window.innerHeight}px`;
+    cloud.style.animationDuration = `${Math.random()*60 + 40}s`;
+    cloud.style.opacity = Math.random()*0.5 + 0.5;
+    body.appendChild(cloud);
+  }
+</script>
+
+</body>
+</html>
